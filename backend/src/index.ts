@@ -16,7 +16,7 @@ const port = process.env.PORT || 3000;
    };
  app.use(cors(options));
 
- 
+ const a=1;
 
 const dbUser = process.env.DB_USER;
 const dbPassWord = process.env.DB_PASSWORD;
