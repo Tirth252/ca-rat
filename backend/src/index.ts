@@ -4,11 +4,11 @@ import { MongoClient , ServerApiVersion  } from 'mongodb';
 import dotenv from 'dotenv';
 
 dotenv.config({path:__dirname + '/dev.env'})
+
 const app = express();
 const port = process.env.PORT || 3000;
-
-
 app.use(express.json());
+
 const allowedOrigins = ['http://localhost:3000'];
 const options: cors.CorsOptions = {
     origin: allowedOrigins
@@ -19,7 +19,6 @@ const dbUser = process.env.DB_USER;
 const dbPassWord = process.env.DB_PASSWORD;
 const uri = `mongodb+srv://${dbUser}:${dbPassWord}@caart.z5r0otj.mongodb.net/?retryWrites=true&w=majority&appName=caart`;
 
-console.log(uri)
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
     serverApi: {
