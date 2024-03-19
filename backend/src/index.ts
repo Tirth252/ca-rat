@@ -7,15 +7,15 @@ dotenv.config({path:__dirname + '/dev.env'})
 const app = express();
 const port = process.env.PORT || 3000;
 
-// app.use('cors')
-// app.use(express.json());
-// const allowedOrigins = ['http://localhost:3000'];
-// const options: cors.CorsOptions = {
-//     origin: allowedOrigins
-//   };
-// app.use(cors(options));
+ 
+ app.use(express.json());
+ const allowedOrigins = ['http://localhost:3000'];
+ const options: cors.CorsOptions = {
+     origin: allowedOrigins
+   };
+ app.use(cors(options));
 
-// console.log(process.env)
+ 
 
 const dbUser = process.env.DB_USER;
 const dbPassWord = process.env.DB_PASSWORD;
