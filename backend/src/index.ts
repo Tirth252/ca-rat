@@ -1,7 +1,9 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
-import { MongoClient , ServerApiVersion  } from 'mongodb';
 import dotenv from 'dotenv';
+import { Schema, model, connect } from 'mongoose';
+
+import User from './models/users'
 
 dotenv.config({path:__dirname + '/dev.env'})
 
@@ -22,27 +24,19 @@ const dbUser = process.env.DB_USER;
 const dbPassWord = process.env.DB_PASSWORD;
 const uri = `mongodb+srv://${dbUser}:${dbPassWord}@caart.z5r0otj.mongodb.net/?retryWrites=true&w=majority&appName=caart`;
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: true,
-      deprecationErrors: true,
-    }
+run().catch(err => console.log(err));
+async function run() {
+  // 4. Connect to MongoDB
+  await connect(uri);
+  console.log("Mongodb connected!")
+
+  const user = new User({
+    username: 'Bill',
+    password: 'bill@initech.com',
   });
-  async function run() {
-    try {
-      // Connect the client to the server	(optional starting in v4.7)
-      await client.connect();
-      // Send a ping to confirm a successful connection
-      await client.db("admin").command({ ping: 1 });
-      console.log("Pinged your deployment. You successfully connected to MongoDB!");
-    } finally {
-      // Ensures that the client will close when you finish/error
-      await client.close();
-    }
-  }
-  run().catch(console.dir);
+  await user.save();
+  console.log("User saved")
+}
 
 
 
