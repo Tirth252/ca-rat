@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
-import { Schema, model, connect } from 'mongoose';
+import { connect } from 'mongoose';
 import User from './models/users'
 
 import Logger from "./lib/logger";
@@ -15,13 +15,12 @@ const port = process.env.PORT || 3000;
 app.use(morganMiddleware)
 
  
- app.use(express.json());
- const allowedOrigins = ['http://localhost:3000'];
- const options: cors.CorsOptions = {
-     origin: allowedOrigins
-   };
- app.use(cors(options));
-
+app.use(express.json());
+const allowedOrigins = ['http://localhost:3000'];
+const options: cors.CorsOptions = {
+    origin: allowedOrigins
+  };
+app.use(cors(options));
 
 const dbUser = process.env.DB_USER;
 const dbPassWord = process.env.DB_PASSWORD;
@@ -33,12 +32,12 @@ async function run() {
   await connect(uri);
   console.log("Mongodb connected!")
 
-  const user = new User({
-    username: 'Bill',
-    password: 'bill@initech.com',
-  });
-  await user.save();
-  console.log("User saved")
+  // const user = new User({
+  //   username: 'Bill',
+  //   password: 'bill@initech.com',
+  // });
+  // await user.save();
+  // console.log("User saved")
 }
 
 
