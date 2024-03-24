@@ -1,10 +1,12 @@
 import { builtinModules } from "module";
 import mongoose from "mongoose";
+import { json } from "stream/consumers";
 
 const UserSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
+        unique : true,
     },
     password:{
         type: String,
@@ -13,6 +15,7 @@ const UserSchema = new mongoose.Schema({
     email: {
         type: String,
         required : true,
+        unique : true,
     },
     // 1: Customer, 2: merchent, 3: admin, 4: superuser
     userType: {  
@@ -27,20 +30,13 @@ const UserSchema = new mongoose.Schema({
     },
     // 1: Female, 2: Male, 3: Other
     gender: {
-        type: Number
-    }
-
-
+        type: Number,
+    },
+    addresses : {
+        type : Array,
+    },
     });
 
-const User = mongoose.model("User",UserSchema)
+const UserModel = mongoose.model("User",UserSchema)
 
-
-
-interface user{
-    username: string;
-    password: string;
-}
-
-
-export default User
+export default UserModel
