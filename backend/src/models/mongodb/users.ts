@@ -1,8 +1,9 @@
 import { builtinModules } from "module";
 import mongoose from "mongoose";
 import { json } from "stream/consumers";
+import User from "../interfaces";
 
-const UserSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema<User>({
     username: {
         type: String,
         required: true,
@@ -24,19 +25,34 @@ const UserSchema = new mongoose.Schema({
     },
     dateCreated:{
         type: Date,
+        default : Date.now,
     },
     dateModified:{
         type: Date,
+        default : Date.now,
     },
     // 1: Female, 2: Male, 3: Other
     gender: {
         type: Number,
     },
     addresses : {
-        type : Array,
+        type : Array<any>
     },
     });
 
-const UserModel = mongoose.model("User",UserSchema)
+
+UserSchema.pre('save',function(next) {
+    // 1) check email regex
+    // 2) hash password
+    // 3) set dateModified
+    console.log("wasd")
+})
+
+const UserModel = mongoose.model<User>("User",UserSchema)
+
+
+
+
+
 
 export default UserModel
