@@ -17,21 +17,21 @@ const HomePage: React.FC = () => {
     { icon: faShoppingBag, action: "/shopping" }, // Shopping bag button
   ];
   return (
-    <div>
-      <div style={{ position: "absolute", top: 20, left: 20 }}>
-        <Link href="/contact">
-          <a style={{ marginRight: 10 }}>
-            <Button label="Contact Us" onClick={() => {}} />
-          </a>
-        </Link>
-        <Link href="/services">
-          <a>
-            <Button label="Services" onClick={() => {}} />
-          </a>
-        </Link>
-      </div>
+    <div className="flex justify-between items-center">
+      {/* Right section with IconButtonGroup */}
       <div>
         <IconButtonGroup buttons={buttons} />
+      </div>
+      {/* Left section with absolute positioned links/buttons */}
+      <div style={{ position: "relative" }}>
+        <div style={{ position: "absolute", top: 20, left: 20 }}>
+          <Link href="/contact" passHref>
+            <Button label="Contact Us" onClick={() => {}} />
+          </Link>
+          <Link href="/services" passHref>
+            <Button label="Services" onClick={() => {}} />
+          </Link>
+        </div>
       </div>
     </div>
   );

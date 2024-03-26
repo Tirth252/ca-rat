@@ -16,13 +16,15 @@ interface IconButtonGroupProps {
 
 const IconButtonGroup: React.FC<IconButtonGroupProps> = ({ buttons }) => {
   return (
-    <div className="flex item-center">
-      <div className="flex items-center space-x-6">
+    <div className="absolute top-0 right-0">
+      <div className="flex items-center space-x-8">
         {buttons.map((button, index) => (
-          <Link href={button.action} key={index}>
-            <a className="text-white hover:text-gray-300">
-              <FontAwesomeIcon icon={button.icon} size="lg" />
-            </a>
+          <Link
+            href={button.action}
+            key={index}
+            className="text-white hover:text-gray-300"
+          >
+            <FontAwesomeIcon icon={button.icon} size="lg" />
           </Link>
         ))}
       </div>
