@@ -48,7 +48,8 @@ const JewelrySchema = new mongoose.Schema<Jewelry>({
 
 
 JewelrySchema.pre('save',function(next) {
-    
+    const now = new Date();
+    this.dateModified = now;
     
 })
 

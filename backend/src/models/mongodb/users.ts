@@ -51,6 +51,8 @@ UserSchema.pre('save', async function(next) {
     // 3) set dateModified
     const hashedPassword =  await hash(this.password, 10)
     this.password = hashedPassword
+    const now = new Date();
+    this.dateModified = now;
 });
 
 UserSchema.method('isValidPassword', async function(
