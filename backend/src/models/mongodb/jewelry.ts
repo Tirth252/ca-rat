@@ -44,7 +44,14 @@ const JewelrySchema = new mongoose.Schema<Jewelry>({
         type: Date,
         default : Date.now,
     },
-
+    dimondDetails: {
+        type : {
+            stone: String,
+            color: Array<String>,
+            clarity: String,
+            carat: Number,
+        }
+    },
     });
 
 

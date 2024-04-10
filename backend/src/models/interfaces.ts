@@ -24,6 +24,12 @@ export interface Jewelry{
     images: Array<String>
     dateCreated: Date;
     dateModified: Date;
+    dimondDetails:{
+        stone: String,
+        color: Array<String>,
+        clarity: String,
+        carat: Number,
+    }
     
 }
     
