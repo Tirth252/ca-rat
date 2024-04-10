@@ -1,6 +1,4 @@
-import { builtinModules } from "module";
 import mongoose, { Types } from "mongoose";
-import { json } from "stream/consumers";
 import { User } from "../interfaces";
 import { hash , compare  } from 'bcrypt'
 
@@ -9,9 +7,6 @@ interface UserMethods{
 }
 
 const UserSchema = new mongoose.Schema<User, UserMethods>({
-    _id : {
-        type : Types.ObjectId,
-    },
     username: {
         type: String,
         required: true,
@@ -44,7 +39,7 @@ const UserSchema = new mongoose.Schema<User, UserMethods>({
         type: Number,
     },
     addresses : {
-        type : Array<any>
+        type : {street: String, city: String, State: String, zip: Number}
     },
     
     });

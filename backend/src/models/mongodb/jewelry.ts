@@ -1,20 +1,14 @@
-import { builtinModules } from "module";
-import mongoose, { Types } from "mongoose";
-import { json } from "stream/consumers";
+import mongoose from "mongoose";
 import {Jewelry, User} from "../interfaces";
 
 
     
 
 const JewelrySchema = new mongoose.Schema<Jewelry>({
-    _id : {
-        type : Types.ObjectId,
-    },
     name: {
         type: String,
         require: true,
     },
-
     price: {
         type: Number,
         required: true,
