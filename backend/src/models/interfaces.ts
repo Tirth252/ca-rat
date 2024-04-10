@@ -1,4 +1,7 @@
+import { Types } from 'mongoose';
+
 export interface User{
+    _id : String
     username: string;
     password: string;
     email: String;
@@ -7,8 +10,20 @@ export interface User{
     dateModified: Date;
     gender: Number;   // 1: Female, 2: Male, 3: Other
     addresses: Object,
-
     }
 
-
-export default User
+export interface Jewelry{
+    _id : String;
+    name: String;
+    price: Number;
+    merchant: Object;
+    discription: String;
+    availColors: Array<String>;
+    availSize: Array<Number>;
+    refNo : Number;
+    images: Array<String>
+    dateCreated: Date;
+    dateModified: Date;
+    
+}
+    
