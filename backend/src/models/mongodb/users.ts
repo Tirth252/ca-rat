@@ -39,7 +39,7 @@ const UserSchema = new mongoose.Schema<User, UserMethods>({
         type: Number,
     },
     addresses : {
-        type : {street: String, city: String, State: String, zip: Number}
+        type : {label: String, street: String, city: String, State: String, zip: Number}
     },
     
     });
@@ -64,10 +64,5 @@ UserSchema.method('isValidPassword', async function(
 
 
 const UserModel = mongoose.model<User>("User",UserSchema)
-
-
-
-
-
 
 export default UserModel

@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Schema  } from "mongoose";
 import {Jewelry, User} from "../interfaces";
 
 
@@ -14,7 +14,8 @@ const JewelrySchema = new mongoose.Schema<Jewelry>({
         required: true,
     },
     merchant: {
-        type: Object,
+        type: Schema.ObjectId, 
+        ref: "users",
         required: true,
     },
     discription: {
