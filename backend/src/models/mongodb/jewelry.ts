@@ -1,13 +1,15 @@
 import mongoose, { Schema  } from "mongoose";
-import {Jewelry, User} from "../interfaces";
+import {Jewelry} from "../interfaces";
 
-
-    
 
 const JewelrySchema = new mongoose.Schema<Jewelry>({
     name: {
         type: String,
         require: true,
+    },
+    category: {
+        type: Number, // 1: necklace, 2: Ring, 3: Pendent, 4: Earings, 5: Belt buckles
+        require:true,
     },
     price: {
         type: Number,
@@ -23,18 +25,11 @@ const JewelrySchema = new mongoose.Schema<Jewelry>({
         required: true,
         minlength: 5,
     },
-    availColors: [{
-        type: String,
-    }],
     availSize: [{
         type: String,
     }],
-    refNo: {
-        type: Number,
-        required: true,
-    } ,
     images:  [{
-        type: <String>
+        type: String
     }],
     dateCreated:{
         type: Date,
@@ -46,26 +41,27 @@ const JewelrySchema = new mongoose.Schema<Jewelry>({
     },
     dimondDetails: {
         type : {
-            stone: String,
             color: Array<String>,
             clarity: String,
-            carat: Number,
+            weight: Number,
         }
     },
+    jewelryDetails: {
+        type : {
+            goldWeight: Number,
+            goldPurity: Number,
+            goldColor: Array<Number>, // 1: gold, 2: Rose gold, 3: white gold
+        }
+    }
     });
 
 
 JewelrySchema.pre('save',function(next) {
     const now = new Date();
     this.dateModified = now;
-    
+    next()
 })
 
 const JewelryModel = mongoose.model<Jewelry>("Jewelry",JewelrySchema)
-
-
-
-
-
 
 export default JewelryModel

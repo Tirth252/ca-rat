@@ -53,6 +53,7 @@ UserSchema.pre('save', async function(next) {
     this.password = hashedPassword
     const now = new Date();
     this.dateModified = now;
+    next()
 });
 
 UserSchema.method('isValidPassword', async function(

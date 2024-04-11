@@ -15,6 +15,7 @@ export interface User{
 export interface Jewelry{
     _id : String;
     name: String;
+    category: Number, // 1: necklace, 2: Ring, 3: Pendent, 4: Earings, 5: Belt buckles        
     price: Number;
     merchant: Object;
     discription: String;
@@ -25,10 +26,14 @@ export interface Jewelry{
     dateCreated: Date;
     dateModified: Date;
     dimondDetails:{
-        stone: String,
         color: Array<String>,
         clarity: String,
-        carat: Number,
+        weight: Number,
+    }
+    jewelryDetails : {
+        goldWeight: Number,
+        goldPurity: Number,
+        goldColor: Array<Number>
     }
     
 }
