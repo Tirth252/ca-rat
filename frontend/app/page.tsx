@@ -4,12 +4,14 @@ import React from "react";
 import Link from "next/link";
 import styles from "../app/components/styles/button.module.css";
 import Image from "next/image";
+import _footer from "./components/footer";
 
 const HomePage: React.FC = () => {
   const buttons = [
     { src: "/icons/search_icon.png", action: "/search" }, // Search button
-    { src: "/icons/cart_icon.png", action: "/profile" }, // Profile button
-    { src: "/icons/search_icon.png", action: "/shopping" }, // Shopping bag button
+    { src: "/icons/search_icon.png", action: "/profile" },
+    { src: "/icons/cart_icon.png", action: "/cart" }, // Profile button
+    // Shopping bag button
   ];
   const menu = [
     { action: "/highJewel", text: "HIGH JEWELRY" },
@@ -32,23 +34,23 @@ const HomePage: React.FC = () => {
       >
         <div
           className="flex-start items-center"
-          style={{ display: "flex", width: "30%", paddingLeft: 40 }}
+          style={{ display: "flex", width: "28%", paddingLeft: 40 }}
         >
           <Link
             href="/contact"
             passHref
             className={styles["custom-button"]}
-            style={{ fontSize: 21 }}
+            style={{ fontSize: 14, fontWeight: "bold", lineHeight: 14 }}
           >
-            Contact Us
+            CONTACT US
           </Link>
           <Link
             href="/services"
             passHref
             className={styles["custom-button"]}
-            style={{ fontSize: 21 }}
+            style={{ fontSize: 14, fontWeight: "bold", lineHeight: 14 }}
           >
-            Services
+            SERVICES
           </Link>
         </div>
         <div className="items-center" style={{ display: "flex", width: "65%" }}>
@@ -57,8 +59,8 @@ const HomePage: React.FC = () => {
             style={{
               position: "absolute",
 
-              left: "44%",
-              marginRight: "-50%",
+              left: "40%",
+              marginRight: "-60%",
             }}
           >
             <Image
@@ -69,7 +71,15 @@ const HomePage: React.FC = () => {
             ></Image>
           </Link>
         </div>
-        <div className="items-center" style={{ display: "flex", width: "5%" }}>
+        <div
+          className="items-center"
+          style={{
+            display: "flex",
+            width: "7%",
+            justifyContent: "space-evenly",
+            paddingRight: 10,
+          }}
+        >
           {buttons.map((button, index) => (
             <Link
               href={button.action}
@@ -79,7 +89,7 @@ const HomePage: React.FC = () => {
               <Image
                 src={button.src}
                 width={35}
-                height={37}
+                height={40}
                 alt={button.action}
               ></Image>
             </Link>
@@ -89,20 +99,30 @@ const HomePage: React.FC = () => {
       <div
         className="flex justify-between items-center text-primary"
         style={{
-          height: 38,
+          height: 20,
           width: "100%",
           flexDirection: "row",
+
           paddingLeft: "20%",
           paddingRight: "20%  ",
           zIndex: 2,
         }}
       >
         {menu.map((ref, index) => (
-          <Link href={ref.action} key={index} className=" hover:text-gray-300">
+          <Link
+            href={ref.action}
+            key={index}
+            className=" hover:text-gray-300"
+            style={{
+              fontSize: 14,
+              fontWeight: "bold",
+            }}
+          >
             {ref.text}
           </Link>
         ))}
       </div>
+      <_footer></_footer>
     </div>
   );
 };
