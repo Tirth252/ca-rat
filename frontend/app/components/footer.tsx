@@ -10,7 +10,6 @@ const _footer: React.FC = () => {
     "Teams & Service",
   ];
   const secCol = [
-    "Contact us",
     "FAQ",
     "Call Now : 800 222 1111",
     "Shipping & Delivery",
