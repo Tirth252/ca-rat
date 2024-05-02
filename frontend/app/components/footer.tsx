@@ -53,7 +53,6 @@ const _footer: React.FC = () => {
           style={{
             width: "25%",
             paddingLeft: 150,
-            marginTop: -25,
             backgroundColor: "#001E38",
             color: "#FFFFFF",
           }}
@@ -104,7 +103,6 @@ const _footer: React.FC = () => {
               backgroundColor: "#001E38",
               color: "#FFFFFF",
               fontSize: 16,
-              marginTop: -10,
             }}
           >
             CUSTOMER CARE
@@ -135,6 +133,7 @@ const _footer: React.FC = () => {
         <div
           style={{
             width: "25%",
+            marginTop: 40,
           }}
         >
           <h2
@@ -180,7 +179,7 @@ const _footer: React.FC = () => {
             className="flex flex-row"
             style={{
               backgroundColor: "#001E38",
-              paddingTop: 50,
+              paddingTop: 40,
             }}
           >
             {payments.map((button, index) => (
@@ -195,8 +194,8 @@ const _footer: React.FC = () => {
               >
                 <Image
                   src={button.src}
-                  width={40}
-                  height={40}
+                  width={30}
+                  height={30}
                   alt={button.action}
                   style={{
                     backgroundColor: "#001E38",
