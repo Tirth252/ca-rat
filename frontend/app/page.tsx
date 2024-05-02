@@ -59,7 +59,7 @@ const HomePage: React.FC = () => {
             style={{
               position: "absolute",
 
-              left: "44%",
+              left: "42%",
               marginRight: "-60%",
             }}
           >
