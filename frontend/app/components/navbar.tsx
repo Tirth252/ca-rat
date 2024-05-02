@@ -35,7 +35,7 @@ const _navbar: React.FC = () => {
             href="/contact"
             passHref
             className={styles["custom-button"]}
-            style={{ fontSize: 14, fontWeight: "bold", lineHeight: 14 }}
+            style={{ fontSize: 14, fontWeight: "bold" }}
           >
             CONTACT US
           </Link>
@@ -43,7 +43,7 @@ const _navbar: React.FC = () => {
             href="/services"
             passHref
             className={styles["custom-button"]}
-            style={{ fontSize: 14, fontWeight: "bold", lineHeight: 14 }}
+            style={{ fontSize: 14, fontWeight: "bold" }}
           >
             SERVICES
           </Link>
